@@ -1,0 +1,33 @@
+extends ../layout
+
+
+block content
+    .row
+        .col-sm-8
+            h1=tittle
+        .col-sm-4
+            a(href="/products/add",class="btn btn-success float-right") Add Product
+
+    
+    table.table
+        thead
+            tr
+                th Name
+                th Price
+                th Description
+                th Status
+                
+                
+        tbody
+            each product in products
+                tr
+                    td=product.Name
+                    td=product.Price
+                    td=product.Description
+                    td=product.Status
+                         a(href="/products/Delete/"+product._id, class="btn btn-danger float-right") Delete
+                         a(href="/products/Edit/"+product._id, class="btn btn-warning float-right") Edit
+                         a(href="/products/cart/"+product._id, class="btn btn-info float-right") Add to Cart
+            
+
+
